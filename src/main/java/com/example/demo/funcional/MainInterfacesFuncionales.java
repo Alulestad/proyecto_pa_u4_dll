@@ -1,5 +1,9 @@
 package com.example.demo.funcional;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
 import org.hibernate.type.descriptor.java.IntegerJavaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +12,56 @@ public class MainInterfacesFuncionales {
 	
 	private static final Logger LOG=LoggerFactory.getLogger(MainInterfacesFuncionales.class);
 	//Es una interface que permite imprimir detalladamente (nos ayuda a agregar categorias, hora, etc)
+	
 	public static void main(String[] args) {
+		//JAVA
+		//1.- JAVA SUPPLIER 
+		LOG.info("1.- JAVA SUPPLIER ");
+		Stream <String>lista=Stream.generate(()-> {
+			String valor="test";
+			return "Daniel 2";
+			}).limit(10); //Streams con limite 10
+		
+		//TOCA REGRESAR ACA
+		lista.forEach(cadena->LOG.info(cadena));
+		
+		//2.- JAVA CONSUMER 
+		LOG.info("2.- JAVA CONSUMER ");
+		List<Integer> listaNumeros=Arrays.asList(1,2,3,4,5,56,78);
+		listaNumeros.forEach(numero->LOG.info("valor: "+numero));
+		
+		for(Integer val:listaNumeros) {
+			LOG.info("valor: "+val);
+		}
+		
+		//3.- JAVA PREDICATE 
+		LOG.info("3.- JAVA PREDICATE ");
+		Stream <Integer>listaFiltrada=listaNumeros.stream().filter(numero->numero>=3);
+		listaFiltrada.forEach(numero->LOG.info("valor: "+numero));
+		
+		
+		//4.- JAVA FUNCTION 
+		LOG.info("4.- JAVA FUNCTION ");
+		Stream <String> listaCambiada= listaNumeros.stream().map((numeroLista)->{
+			Integer valorFinal=numeroLista+1;
+			String cadena="num: "+valorFinal.toString();
+			return cadena;
+		});
+		listaCambiada.forEach(cadena->LOG.info(cadena));
+		
+		//5.-JAVA UnaryOperator
+		LOG.info("5.- JAVA UNARY OPERATOR FUNCTION");
+		Stream <Integer> listaCambiada2= listaNumeros.stream().map((numeroLista)->{
+			Integer valorFinal=numeroLista+1;
+			return valorFinal;
+		});
+		listaCambiada2.forEach(numero->LOG.info("Valor entero: "+numero));
+
+		
+		
+	}
+	
+	public static void lambdasCreados(String[] args) {
 		System.out.println("MainInterfacesFuncionales");
 		//1.- SUPPLIER 
 		LOG.info("1.- SUPPLIER ");
