@@ -24,4 +24,39 @@ public class Ciudadano {
 	private String apellido;
 	@Column(name="ciud_fecha_nacimiento")
 	private LocalDateTime fechaNacimiento;
+	
+	//GETS Y SETS
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public LocalDateTime getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	
+	@Override
+	public String toString() {
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento="
+				+ fechaNacimiento + "]";
+	}
+	
+	
+	
 }

@@ -23,7 +23,32 @@ public class Estudiante {
 	private String nombreCompleto;
 	@Column(name="estu_edad")
 	private Integer edad;
-
 	
+	
+	//gets y sets
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
+	public Integer getEdad() {
+		return edad;
+	}
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+	
+	@Override
+	public String toString() {
+		return "Estudiante [id=" + id + ", nombreCompleto=" + nombreCompleto + ", edad=" + edad + "]";
+	}
+
 
 }
